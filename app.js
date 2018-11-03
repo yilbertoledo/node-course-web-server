@@ -2,6 +2,8 @@ const express = require("express");
 const hbs = require("hbs");
 const fs = require("fs");
 
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 //Indicar a hbs donde ubicar los partials
@@ -84,6 +86,6 @@ app.get("/", (req, resp) => {
 
 
 //Iniciar escucha puerto 3000
-app.listen(3000, () => {
-  console.log("App is running on port 3000");
+app.listen(port, () => {
+  console.log(`App is running on port ${port}`);
 });
