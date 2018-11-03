@@ -22,7 +22,6 @@ hbs.registerHelper("sayItLoud", text => {
   return text.toUpperCase();
 });
 
-
 //Express Middlewares
 //2 - Middleware para registrar un log con todas las peticiones
 app.use((req, resp, next) => {
@@ -66,12 +65,22 @@ app.get("/bad", (request, respose) => {
   });
 });
 
-//Ruta con Respuesta basada en el iew engine hbs (handledbars)
+//Ruta con Respuesta basada en el view engine hbs (handledbars)
 app.get("/about", (req, resp) => {
   console.log("Go to about");
   //No es necesario indicar el directorio views porque es el directorio por defecto de hbs
   resp.render("about.hbs", {
     pageTitle: "About Page!"
+  });
+});
+
+//Ruta con Respuesta basada en el view engine hbs (handledbars)
+app.get("/projects", (req, resp) => {
+  console.log("Go to projects");
+  //No es necesario indicar el directorio views porque es el directorio por defecto de hbs
+  resp.render("projects.hbs", {
+    pageTitle: "Projects Page!",
+    usedLanguages: ["Node.js", "C#.NET", "Java", "Javascript"]
   });
 });
 
@@ -83,7 +92,6 @@ app.get("/", (req, resp) => {
     Like it knows it killed the world once and got a taste for murder.`
   });
 });
-
 
 //Iniciar escucha puerto 3000
 app.listen(port, () => {
